@@ -12,6 +12,7 @@ buildscript {
 }
 
 //apply plugin: 'groovy'
+apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'spring-boot'
 apply plugin: 'cloudbees'
@@ -30,8 +31,10 @@ repositories {
 
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    compile "org.easymock:easymock:3.1"
 //    testCompile "org.codehaus.groovy:groovy-all:2.2.0"
 //    testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
+    testCompile "junit:junit"
 }
 
 springBoot {
@@ -57,4 +60,7 @@ cloudBees {
 cloudBeesAppDeployArchive.dependsOn assemble
 cloudBeesAppDeployArchive.message = project.version
 
-
+tasks.withType(Test) {
+    scanForTestClasses = false
+    include "**/*Test.class" // whatever Ant pattern matches your test class files
+}
