@@ -1,6 +1,7 @@
-package hello;
+package me.darrenlyons.st;
 
 import junit.framework.Assert;
+import me.darrenlyons.st.HelloController;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -19,7 +19,7 @@ apply plugin: 'cloudbees'
 
 def springBootVersion = "1.0.0.RC5"
 
-archivesBaseName = 'hello'
+archivesBaseName = 'social-transformation'
 version =  '0.1.1'
 
 repositories {
@@ -36,7 +36,7 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-data-jpa"
     compile "org.apache.commons:commons-lang3:3.2.1"
     compile "com.google.guava:guava:16.0.1"
-    compile "org.yaml:snakeyaml:1.13"
+//    compile "org.yaml:snakeyaml:1.13"
     compile "mysql:mysql-connector-java:5.1.28"
     compile "com.h2database:h2"
     testCompile "junit:junit"
@@ -44,7 +44,7 @@ dependencies {
 }
 
 springBoot {
-    mainClass = "hello.Application"
+    mainClass = "me.darrenlyons.st.Application"
     backupSource = true
 }
 

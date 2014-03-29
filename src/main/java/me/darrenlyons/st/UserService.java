@@ -1,32 +1,20 @@
-package hello;
+package me.darrenlyons.st;
 
-import java.util.Arrays;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+@Service
+public class UserService {
+    @Autowired
+    private UserRepository repository;
 
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan
-public class Application {
+    @Value("${name}")
+    private String name;
 
-    public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(Application.class, args);
-
-        System.out.println("Let's inspect the beans provided by Spring Boot:");
-
-        String[] beanNames = ctx.getBeanDefinitionNames();
-        Arrays.sort(beanNames);
-        for (String beanName : beanNames) {
-            System.out.println(beanName);
-        }
-
-        UserRepository repository = ctx.getBean(UserRepository.class);
-
+    public void playWithRepo(){
         // save a couple of Users
         repository.save(new User("Jack", "Bauer"));
         repository.save(new User("Chloe", "O'Brian"));
@@ -58,8 +46,7 @@ public class Application {
             System.out.println(bauer);
         }
 
-        
-        
-    }
+        System.out.println("name = " + name);
 
+    }
 }

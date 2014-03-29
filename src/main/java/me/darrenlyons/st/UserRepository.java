@@ -1,4 +1,4 @@
-package hello;
+package me.darrenlyons.st;
 
 import java.util.List;
 
