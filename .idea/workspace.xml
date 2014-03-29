@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12a1c80a-b853-4428-925c-4c6c9b7d00ce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/darrenlyons/st/UserService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/hello/Application.java" afterPath="$PROJECT_DIR$/src/main/java/me/darrenlyons/st/Application.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/hello/HelloController.java" afterPath="$PROJECT_DIR$/src/main/java/me/darrenlyons/st/HelloController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/hello/User.java" afterPath="$PROJECT_DIR$/src/main/java/me/darrenlyons/st/User.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/hello/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/me/darrenlyons/st/UserRepository.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/hello/HelloControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/me/darrenlyons/st/HelloControllerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="12a1c80a-b853-4428-925c-4c6c9b7d00ce" name="Default" comment="" />
     <ignored path="SocialTransformation.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
