@@ -51,9 +51,9 @@ def springBootWarLauncherClassName = "org.springframework.boot.loader.WarLaunche
 task deploy(dependsOn: cloudBeesAppDeployArchive)
 
 cloudBees {
-    apiKey = 'cloudbeesApiKey'
-    apiSecret = 'cloudbeesApiSecret'
-    appId = 'community/springboot-sample'
+    apiKey = cloudbeeskey
+    apiSecret = cloudbeessecret
+    appId = 'darrenjl/socialtransformation'
     archiveType = 'jar'
     archiveFile = war.archivePath
     deltaDeploy = true
