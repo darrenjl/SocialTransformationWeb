@@ -2,43 +2,40 @@ buildscript {
     repositories {
         maven { url 'http://dl.bintray.com/msgilligan/maven' }
         maven { url 'http://jcenter.bintray.com' }
+        maven { url "http://repo.spring.io/libs-snapshot" }
+        mavenLocal()
         mavenCentral()
     }
     dependencies {
-        def sbBuildScriptVersion = "1.0.0.RC5"
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${sbBuildScriptVersion}")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.1.RELEASE")
         classpath 'org.gradle.api.plugins:gradle-cloudbees-plugin:0.1.1'
     }
 }
 
-//apply plugin: 'groovy'
 apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
 apply plugin: 'war'
 apply plugin: 'spring-boot'
 apply plugin: 'cloudbees'
 
-def springBootVersion = "1.0.0.RC5"
-
 archivesBaseName = 'social-transformation'
-version =  '0.1.1'
+version = '0.1.1'
 
 repositories {
     mavenCentral()
-    maven {
-        url 'http://repo.spring.io/milestone'
-    }
+    maven { url "http://repo.spring.io/libs-snapshot" }
 }
 
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-web"
-//    testCompile "org.codehaus.groovy:groovy-all:2.2.0"
-//    testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
     compile "org.springframework.boot:spring-boot-starter-data-jpa"
+    compile "org.springframework.boot:spring-boot-starter-security"
     compile "org.apache.commons:commons-lang3:3.2.1"
     compile "com.google.guava:guava:16.0.1"
-//    compile "org.yaml:snakeyaml:1.13"
     compile "mysql:mysql-connector-java:5.1.28"
     compile "com.h2database:h2"
+    compile "org.thymeleaf:thymeleaf-spring4"
     testCompile "junit:junit"
     testCompile "org.easymock:easymock:3.1"
 }
@@ -69,4 +66,8 @@ cloudBeesAppDeployArchive.message = project.version
 tasks.withType(Test) {
     scanForTestClasses = false
     include "**/*Test.class" // whatever Ant pattern matches your test class files
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
 }
