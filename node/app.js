@@ -26,6 +26,7 @@ require('./config/passport')(passport); // pass passport for configuration
 app.use(morgan('dev')); // log every request to the console
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs'); 
+// app.set('view options', { layout:'layout.ejs' });
 
 app.use(favicon());
 app.use(bodyParser.json());
