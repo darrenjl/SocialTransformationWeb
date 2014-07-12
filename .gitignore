@@ -5,3 +5,5 @@ build/
 *.war
 *.ear
 gradle.properties
+node/data/
+node/node_modules
