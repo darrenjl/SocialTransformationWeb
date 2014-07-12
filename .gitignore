@@ -5,3 +5,4 @@ build/
 *.war
 *.ear
 gradle.properties
+.idea/
