@@ -1,8 +1,16 @@
 body {
-  padding: 80px;
+  padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+div.logo {
+
+}
+
+div.logo img {
+	width: 150px;
 }
