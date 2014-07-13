@@ -136,7 +136,7 @@ router.get('/loginSuccess', function(req, res, next) {
 // user account will stay active in case they want to reconnect in the future
 
     // local -----------------------------------
-    app.get('/unlink/local', function(req, res) {
+    router.get('/unlink/local', function(req, res) {
         var user            = req.user;
         user.local.email    = undefined;
         user.local.password = undefined;
@@ -146,7 +146,7 @@ router.get('/loginSuccess', function(req, res, next) {
     });
 
     // facebook -------------------------------
-    app.get('/unlink/facebook', function(req, res) {
+    router.get('/unlink/facebook', function(req, res) {
         var user            = req.user;
         user.facebook.token = undefined;
         user.save(function(err) {
@@ -155,7 +155,7 @@ router.get('/loginSuccess', function(req, res, next) {
     });
 
     // google ---------------------------------
-    app.get('/unlink/google', function(req, res) {
+    router.get('/unlink/google', function(req, res) {
         var user          = req.user;
         user.google.token = undefined;
         user.save(function(err) {
