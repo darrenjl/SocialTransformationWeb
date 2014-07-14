@@ -25,6 +25,7 @@
     "passport-twitter" : "*",  
     "passport-google-oauth" : "*",
     "connect-flash" : "*",   
-    "bcrypt-nodejs" : "*"
+    "bcrypt-nodejs" : "*",
+    "log4js" : "*"
   }
 }

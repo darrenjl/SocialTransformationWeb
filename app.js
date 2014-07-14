@@ -24,6 +24,15 @@ require('./config/passport')(passport); // pass passport for configuration
 
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
+
+var log4js = require( "log4js" );
+log4js.configure( "./config/log4js.json" );
+// var logger = log4js.getLogger( "test-file-appender" );
+// log4js.getLogger("app") will return logger that prints log to the console
+// logger.debug("Hello log4js");// store log in file
+var logger = log4js.getLogger("app");
+logger.debug("-------------Logging to console -----------")
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs'); 
 // app.set('view options', { layout:'layout.ejs' });
