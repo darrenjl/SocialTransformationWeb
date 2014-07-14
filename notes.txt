@@ -1,0 +1,5 @@
+To add openshift repository:
+git remote add openshift -f ssh://53c21fcd4382ec5f9100029e@socialtransformation-darrenjl.rhcloud.com/~/git/socialtransformation.git/
+
+To deploy:
+git push openshift

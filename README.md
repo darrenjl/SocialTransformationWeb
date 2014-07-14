@@ -1,4 +1,4 @@
 SocialTransformationWeb
 =======================
 
-Competitive Weight Loss Application Prototype
+Competitive Weight Loss Application Prototype  using nodejs, express and mongodb.
