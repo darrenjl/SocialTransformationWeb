@@ -5,12 +5,12 @@ var router = express.Router();
 var Weighin       = require('../models/userWeighIns');
 
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/', isLoggedIn, function(req, res) {
     res.render('weighin');
 });
 
 // process the signup form
-router.post('/', function(req, res) {
+router.post('/', isLoggedIn, function(req, res) {
         var user          = req.user;
         var weighin       = new Weighin();
 
@@ -28,3 +28,14 @@ router.post('/', function(req, res) {
     });
 
     module.exports = router;
+
+    // route middleware to make sure a user is logged in
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on 
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/login');
+}
