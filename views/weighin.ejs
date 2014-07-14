@@ -3,6 +3,11 @@
 	<div class="col-sm-6 col-sm-offset-3">
 
 	<h1>Weigh-in</h1>
+	<ul>
+<% weighinsList.forEach(function (weighin) { %>
+    <li><%= weighin.date %> - <%= weighin.weight %></li>
+<% }); %>
+</ul>
 	</div>
 
 <% include footer %>

@@ -6,7 +6,12 @@ var Weighin       = require('../models/userWeighIns');
 
 /* GET home page. */
 router.get('/', isLoggedIn, function(req, res) {
-    res.render('weighin');
+    Weighin.find({},{},function(e,docs){
+        log4js.getLogger("app").debug(docs);
+        res.render('weighin', {
+            "weighinsList" : docs
+        });
+    });
 });
 
 // process the signup form
