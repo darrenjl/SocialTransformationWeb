@@ -1,10 +1,22 @@
 var express = require('express');
 var passport = require('passport');
 var router = express.Router();
+var log4js = require( "log4js" );
+
+
+router.get('/x', function(req, res){
+  req.flash('test', 'it worked');
+  res.redirect('/test')
+});
+ 
+router.get('/test', function(req, res){
+  res.send(JSON.stringify(req.flash('test')));
+})
 
 /* GET home page. */
-router.get('/', function(req, res) {
-    res.render('index');
+router.get('/', function(req, res) {  
+    var logger = log4js.getLogger("app");    
+    res.render('index', { message: req.flash('loginMessage') });
 });
 
 // =====================================
@@ -31,7 +43,7 @@ router.get('/login', function(req, res) {
 // process the login form
 router.post('/login', passport.authenticate('local-login', {
         successRedirect : '/profile', // redirect to the secure profile section
-        failureRedirect : '/login', // redirect back to the signup page if there is an error
+        failureRedirect : '/', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
 

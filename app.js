@@ -40,13 +40,13 @@ app.set('view engine', 'ejs');
 app.use(favicon());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(cookieParser('secretString'));
+app.use(session({cookie: { maxAge: 60000 }, secret: 'ilovescotchscotchyscotchscotch'}));
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-app.use(flash());
+
 
 // Make our db accessible to our router
 app.use(function(req,res,next){
@@ -92,10 +92,10 @@ app.use(function(err, req, res, next) {
 });
 
 var server_port = process.env.OPENSHIFT_NODEJS_PORT || 3000
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
 app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 3000); 
-app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
-
+app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || "0.0.0.0");
+require('express-debug')(app);
 app.listen(server_port, server_ip_address, function () {
   console.log( "Listening on " + server_ip_address + ", server_port " + server_port )
 });

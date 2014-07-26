@@ -26,6 +26,7 @@
     "passport-google-oauth" : "*",
     "connect-flash" : "*",   
     "bcrypt-nodejs" : "*",
-    "log4js" : "*"
+    "log4js" : "*",
+    "express-debug" : "*"
   }
 }
